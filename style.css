@@ -3,11 +3,13 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Noto Nastaliq Urdu", serif;
 }
 .container {
   display: flex;
@@ -15,6 +17,7 @@ body {
   gap: 15px;
 }
 .panel {
+  position: relative;
   flex: 0.5;
   height: 350px;
   border-radius: 10px;
@@ -22,7 +25,17 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+@media (max-width: 520px) {
+  .container {
+    width: 100vh;
+  }
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
 .panel.active {
+  position: relative;
   flex: 5;
   height: 350px;
   border-radius: 10px;
@@ -32,10 +45,17 @@ body {
 }
 .panel h3 {
   position: absolute;
-  bottom: 15px;
-  left: 20px;
+  bottom: 7;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  left: 10;
   color: #fff;
   font-size: 8px;
-  bottom: 20px;
-  left: 20px;
+  opacity: 0;
+}
+.panel.active h3 {
+  transition: ease-in 0.3s;
+  opacity: 1;
 }
